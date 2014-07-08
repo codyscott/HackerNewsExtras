@@ -1,0 +1,11 @@
+{
+    "name":"hacker news identicons",
+    "version":"0.0.1",
+    "manifest_version":2,
+    "content_scripts": [
+        {
+            "matches": ["*://news.ycombinator.com/*"],
+            "js": ["jquery.js", "hnidenticon.js"]
+        }
+    ]
+}
