@@ -1,3 +1,5 @@
+var userNameToColor = { }
+
 function strToColor(str) {
     var hashed = hash(str)
     var R = hashed.substring(0,2)
@@ -12,8 +14,11 @@ function randomColorAsHexStr() {
 }
 
 function getRGB(str){
-    // return strToColor(str);
-    return randomColorAsHexStr();
+    if (!userNameToColor.hasOwnProperty(str)) {
+        userNameToColor[str] = randomColorAsHexStr();
+    }
+
+    return userNameToColor[str];
 }
 
 function buildIdenticon(str) {
