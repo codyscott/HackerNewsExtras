@@ -35,6 +35,12 @@ function buildIdenticon(str) {
 }
 
 $("a[href^=user]").each(function () {
+    // don't apply to page header or OP
+    var parentClass = $(this).parent().prop('class')
+    if (parentClass == "pagetop" || parentClass == "subtext"){
+        return
+    }
+
     // change margin to fit
     var div = $(this).closest('div');
     div.css('margin-top', '0px')
