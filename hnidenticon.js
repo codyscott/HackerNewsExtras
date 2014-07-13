@@ -6,6 +6,7 @@ function strToColor(str) {
     var G = hashed.substring(2,4)
     var B = hashed.substring(4,6)
 
+    // bug: these need to be 2 digits alwasys
     return '#' + R + G + B;
 }
 
@@ -21,13 +22,17 @@ function getRGB(str){
     return userNameToColor[str];
 }
 
-function buildIdenticon(str) {
-    var color = getRGB(str)
-
-    return "<div style='background-color:" + color
-           + "; width: 10px; height:10px; float:left; margin: 2px 2px 0px;' />"
+function embiggenUserName(str) {
+    return "<p style='font-size:15'>"+str+"</p>"
 }
 
+function buildIdenticon(str) {
+    var color = getRGB(str);
+    var first = str.charAt(0).toUpperCase();
+
+    return "<div style='background-color:" + color + "; width: 30px; height:30px; float:left; margin: 2px 2px 0px;' >"
+         + "<p style='font-weight:bold;font-size:12;text-align:center;vertical-align:middle;color:#FFFFFF''>" + first + "</p>" + "</div>"
+}
 
 $("a[href^=user]").each(function () {
     var str = $(this).text();
