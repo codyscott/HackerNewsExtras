@@ -4,7 +4,7 @@
     "manifest_version":2,
     "content_scripts": [
         {
-            "matches": ["*://news.ycombinator.com/*"],
+            "matches": ["*://news.ycombinator.com/item*"],
             "js": ["jquery.min.js", "hnidenticon.js"]
         }
     ]
