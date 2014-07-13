@@ -35,6 +35,11 @@ function buildIdenticon(str) {
 }
 
 $("a[href^=user]").each(function () {
+    // change margin to fit
+    var div = $(this).closest('div');
+    div.css('margin-top', '2px')
+    div.css('margin-bottom', '5px')
+
     var str = $(this).text();
     var identicon = buildIdenticon(str);
 
